@@ -6,6 +6,7 @@ import 'package:onparking_mobile/model/mallList.dart';
 import 'package:onparking_mobile/listItemUser.dart';
 import 'package:onparking_mobile/GradientAppBar.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'dart:async';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({
@@ -18,10 +19,16 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   late Future<MallListResult> _mall;
   @override
+  // Timer? timer;
   void initState() {
     super.initState();
     _mall = ApiService().readMall();
+    // timer = Timer.periodic(Duration(milliseconds: 500), (Timer t) => updateValue());
+    
   }
+  // void updateValue() async{
+  //   _mall = ApiService().readMall();
+  // }
 
   Widget _buildList(BuildContext context) {
     return Container(

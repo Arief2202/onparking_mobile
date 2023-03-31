@@ -6,6 +6,7 @@ import 'package:onparking_mobile/model/orderList.dart';
 import 'package:onparking_mobile/orderListView.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:onparking_mobile/GradientAppBar.dart';
 
 class StatusPage extends StatefulWidget {
   // final List<MallList> doneTourismPlaceList;
@@ -27,7 +28,39 @@ class _StatusPageState extends State<StatusPage> {
   }
 
   Widget _buildList(BuildContext context) {
-    return FutureBuilder(
+    return Container(
+      // width: double.infinity,
+      // height: double.infinity,
+      // margin: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      // height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
+      // margin: const EdgeInsets.only(left: 0.0, right: 0.0, top: 50.0),
+      // padding: const EdgeInsets.only(left: 0.0, right: 0.0, top: 0.0),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        // stops: [
+        //   // 1,
+        //   0.1,
+        //   0.6,
+        //   0.9,
+        // ],
+        colors: [
+          // Colors.white,
+          Color.fromARGB(255, 68, 38, 145),
+          Color.fromARGB(255, 31, 92, 116),
+          // Color.fromARGB(255, 3, 73, 202),
+          // Color.fromARGB(255, 97, 106, 145),
+          // Color.fromARGB(255, 32, 25, 100),
+        ],
+      )),
+      child: Column(
+        children: [
+          // GradientAppBar(),
+          Container(
+            margin: EdgeInsets.only(top: 20),
+            height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top - 80,
+            child: FutureBuilder(
       future: _mall,
       builder: (context, AsyncSnapshot<OrderListResult> snapshot) {
         var state = snapshot.connectionState;
@@ -55,7 +88,7 @@ class _StatusPageState extends State<StatusPage> {
           }
         }
       },
-    );
+    ))]));
   }
 
   _StatusPageState();
@@ -63,6 +96,7 @@ class _StatusPageState extends State<StatusPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 0, 44, 138),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Phoenix.rebirth(context),

@@ -47,7 +47,7 @@ class MallList {
     openTimeMall: json['openTimeMall'], 
     kuotaMall: json['kuotaMall'], 
     orderCount: json['orderCount'], 
-    spot: List<Spot>.from((json["spot"] as List).map((x) => Spot.fromJson(x))),
+    spot: List<Spot>.from((json["spot_ready"] as List).map((x) => Spot.fromJson(x))),
   );
 }
 
@@ -64,13 +64,28 @@ class Spot {
   );
 }
 
-// class Blok{
-//   String blok;
-//   Blok({
-//     required this.blok,
-//   });
-//   factory Blok.fromJson(Map<String, dynamic> json) => Blok(
-//     blok: json['blok'],
-//   );
-// }
-
+class OrderedSpotParkir{
+  int id;
+  int mall_id;
+  int lantai;
+  String blok;
+  int carExist;
+  String harga;
+  OrderedSpotParkir({
+    required this.id,
+    required this.mall_id,
+    required this.lantai,
+    required this.blok,
+    required this.carExist,
+    required this.harga
+  });
+  
+  factory OrderedSpotParkir.fromJson(Map<String, dynamic> json) => OrderedSpotParkir(
+    id: json['id'], 
+    mall_id: json['mall_id'], 
+    lantai: json['lantai'], 
+    blok: json['blok'], 
+    carExist: json['carExist'], 
+    harga: json['harga'],
+  );
+}

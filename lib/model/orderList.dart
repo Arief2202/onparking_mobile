@@ -30,6 +30,7 @@ class OrderListResult {
 class OrderList {
   int id;
   MallList mall;
+  OrderedSpotParkir ordered_spot_parkir;
   int progress;
   String? expired_time;
   String? order_time;
@@ -39,6 +40,7 @@ class OrderList {
   OrderList({
     required this.id, 
     required this.mall, 
+    required this.ordered_spot_parkir,
     required this.progress, 
     required this.expired_time, 
     required this.order_time, 
@@ -49,6 +51,7 @@ class OrderList {
     Map<String, dynamic> json) => OrderList(
       id: json['id'], 
       mall: MallList.fromJson(json['mall']), 
+      ordered_spot_parkir: OrderedSpotParkir.fromJson(json['spot_parkir']),
       progress: json['progress'], 
       expired_time: json['expired_time'], 
       order_time: json['order_time'], 
