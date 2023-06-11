@@ -36,6 +36,8 @@ class OrderList {
   String? order_time;
   String? checkIn_time;
   String? checkOut_time;
+  String? durasi_parkir;
+  String? estimasi_harga;
 
   OrderList({
     required this.id, 
@@ -45,7 +47,9 @@ class OrderList {
     required this.expired_time, 
     required this.order_time, 
     required this.checkIn_time, 
-    required this.checkOut_time});
+    required this.checkOut_time, 
+    required this.durasi_parkir, 
+    required this.estimasi_harga});
 
   factory OrderList.fromJson(
     Map<String, dynamic> json) => OrderList(
@@ -55,6 +59,8 @@ class OrderList {
       progress: json['progress'], 
       expired_time: json['expired_time'], 
       order_time: json['order_time'], 
-      checkIn_time: json['checkIn_time'], 
-      checkOut_time: json['checkOut_time']);
+      checkIn_time: json['checkin_time'], 
+      checkOut_time: json['checkout_time'], 
+      durasi_parkir: json['durasi_parkir'], 
+      estimasi_harga: json['estimasi_harga']);
 }
