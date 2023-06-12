@@ -35,7 +35,7 @@ class OrderListView extends StatelessWidget {
       "Expired",
     ];
     var detailCardColor = [
-      Colors.red,
+      Colors.white,
       Color.fromARGB(100, 199, 184, 46),
       Color.fromARGB(100, 53, 117, 56),
       Color.fromARGB(100, 196, 74, 65),
